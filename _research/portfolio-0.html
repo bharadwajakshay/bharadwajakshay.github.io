@@ -1,0 +1,84 @@
+---
+title: "Research Assistant"
+excerpt: "Research Assistant at Ohio University <br/><img src='/images/ra-OU.JPG'>"
+collection: portfolio
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>UAS Research Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://bharadwajakshay.github.io//assets/css/main.css">
+    <link rel="stylesheet" href="https://bharadwajakshay.github.io//assets/css/academicons.css"/>
+    
+</head>
+<body>
+
+<div id="main" role="main">
+    <div class="page">
+        <div class="page__inner-wrap">
+            <header>
+                <h1 class="page__title">UAS Platforms for Autonomous Navigation</h1>
+                <p>An Overview of Research and Development</p>
+            </header>
+
+            <section class="page__content">
+                <h2>Introduction & Objective</h2>
+                <p>This research focuses on the development of Unmanned Aircraft Systems (UAS) platforms for autonomous operation, particularly in challenging environments where traditional GPS-based navigation is unreliable. The objective was to design, build, and test custom hardware and software solutions for robust positioning, navigation, and mapping.</p>
+                <ul>
+                    <li><strong>Goal:</strong> To achieve reliable waypoint navigation in GNSS-denied or challenged conditions.</li>
+                    <li><strong>Approach:</strong> Integrating novel positioning solutions and developing custom algorithms for perception and localization.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Key Contributions</h2>
+                <p>
+                    <strong>UAS Platform Development:</strong> Built multi-rotor UAS platforms and tuned the flight controllers for stable and efficient data collection. This involved calibrating sensors and optimizing PID loops to ensure precise flight characteristics required for research.
+                </p>
+                <p>
+                    <strong>Custom Hardware & Sensor Integration:</strong> Designed custom hardware to seamlessly integrate various sensors (e.g., LiDAR, cameras) with lightweight computing platforms like Raspberry Pi and Odroid, enabling on-board processing and data acquisition.
+                </p>
+                <p>
+                    <strong>Alternative Positioning Solutions:</strong> Collaborated with NextNav to utilize their proprietary urban and indoor positioning solution on multi-rotor UAS platforms, providing an effective alternative to GPS for waypoint navigation in challenging urban environments.
+                </p>
+                <p>
+                    <strong>Advanced Algorithmic Implementation:</strong> Implemented a plane estimation algorithm using Singular Value Decomposition (SVD) for rapid and accurate plane extraction from point cloud data, a critical step for localization and mapping algorithms.
+                </p>
+
+                <hr>
+
+                <h2>Methodology</h2>
+                <p>
+                    <strong>Dataset Collection:</strong> Collected extensive UAV datasets to analyze GNSS positioning under various GNSS-denied and GNSS-challenged conditions. This included flights in urban canyons, under dense tree cover, and indoors.
+                </p>
+                <p>
+                    <strong>SLAM Implementation:</strong> Adopted and customized open-source SLAM (Simultaneous Localization and Mapping) algorithms for the datasets collected by UAVs, focusing on point cloud-based and visual SLAM techniques.
+                </p>
+                <p>
+                    <strong>Ground Truth Generation:</strong> Utilized a terrestrial LiDAR scanner to obtain high-precision ground truth point clouds. These were crucial for evaluating and validating the accuracy of the developed localization and mapping algorithms.
+                </p>
+
+                <hr>
+
+                <h2>Results & Findings</h2>
+                <p>Based on the analysis, significant improvements in positioning accuracy were observed using the NextNav solution compared to traditional GPS in urban settings. The implemented SVD-based algorithm also demonstrated high computational efficiency for real-time plane detection.</p>
+                
+                <div style="background-color: #f7f7f7; padding: 20px; border-radius: 8px; text-align: center;">
+                    <p>[Insert a chart or graph here, e.g., comparison of positioning errors]</p>
+                </div>
+
+                <hr>
+
+                <h2>Conclusion</h2>
+                <p>This research successfully demonstrated the feasibility and effectiveness of using custom-built UAS platforms and alternative positioning systems for navigation in GNSS-denied environments. The work provides a strong foundation for future advancements in autonomous drone operations, especially for applications like search and rescue, infrastructure inspection, and delivery in complex urban landscapes.</p>
+
+            </section>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

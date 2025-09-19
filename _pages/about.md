@@ -16,7 +16,7 @@ Before starting my PhD, I earned an M.S. in Electrical and Computer Science Engi
 
 Alongside research, I have several years of teaching experience, including co-instructing courses on digital imaging, numerical methods, and programming, as well as guiding students in data analysis, embedded systems, and computer vision applications.
 
-Professionally, I worked as a Software Engineer in Sensor Fusion at LocusLabs (acquired by Google), where I developed full-stack perception and mapping systems deployed in airports and malls worldwide. Earlier in my career, I was an Embedded Design Engineer at Redmount Consultancy Services, designing FPGA/DSP-based imaging solutions.
+Professionally, I worked as a Software Engineer in Sensor Fusion at LocusLabs (acquired by [Acuity Brands](https://investors.acuityinc.com/news-releases/news-release-details/acuity-brands-announces-acquisition-locuslabs-inc)), where I developed full-stack perception and mapping systems deployed in airports and malls worldwide. Earlier in my career, I was an Embedded Design Engineer at Redmount Consultancy Services, designing FPGA/DSP-based imaging solutions.
 
 My work has been published in IEEE/ION conferences and journals, with contributions spanning UAV navigation, 3D vision, and medical imaging.
 
@@ -28,6 +28,6 @@ Skills and Tools
 
 Programming: Python, C, C++, MATLAB
 
-Frameworks & Tools: PyTorch, TensorFlow, ROS, Docker, AWS, LaTeX
+Frameworks & Tools: PyTorch, TensorFlow, ROS, Docker, AWS, LaTeX, Git
 
-Domains: Photogrammetry, SLAM, Sensor Fusion, Robotics, Computer Vision
+Domains: Photogrammetry, SLAM, Sensor Fusion, Robotics, Computer Vision, 3D Reconstruction
