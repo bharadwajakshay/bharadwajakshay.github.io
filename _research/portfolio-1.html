@@ -1,45 +1,131 @@
 ---
-title: "A Perception Payload for Small UAS Navigation in Structured Environments"
-excerpt: "Master's Thesis: 
-Small UAS platform and poisitioning solution for autonomous navigation in maintainance tunnels<br/><img src='/images/thesis-masters-ou.jpg'>"
+title: "A Perception Payload for Small-UAS Navigation in Structured Environments"
+excerpt: "Master's Thesis (Ohio University, 2018): Multi-sensor perception payload integrating 3D depth and thermal imaging with IMU for autonomous UAS navigation in GNSS-denied maintenance tunnels.<br/><img src='/images/thesis-masters-ou.jpg'>"
 collection: portfolio
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>UAS Inspection Research</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://bharadwajakshay.github.io//assets/css/main.css">
-    
-</head>
-<body>
+<section>
+  <h2>Overview</h2>
+  <p>
+    This master's thesis presents the design, implementation, and evaluation of a perception payload for
+    autonomous small-UAS navigation in structured, GNSS-denied environments such as maintenance tunnels
+    and indoor corridors. The system integrates depth imagery, Short-Wave Infrared (SWIR) imagery, and
+    Long-Wave Infrared (LWIR) thermal imaging with an Inertial Measurement Unit (IMU) to simultaneously
+    estimate the platform's 6-DOF pose and generate a thermal anomaly map of the environment.
+  </p>
+  <ul>
+    <li><strong>Institution:</strong> Ohio University, Russ College of Engineering</li>
+    <li><strong>Degree:</strong> Master of Science, Electrical Engineering and Computer Science</li>
+    <li><strong>Advisor:</strong> Prof. Maarten Uijt de Haag</li>
+    <li><strong>Year:</strong> August 2018</li>
+  </ul>
+</section>
 
-<div id="main" role="main">
-    <div class="page">
-        <div class="page__inner-wrap">
-            <header>
-                <h1 class="page__title">Autonomous UAS for Industrial Inspection</h1>
-            </header>
+<hr>
 
-            <section class="page__content">
-                <p>My work focused on developing and deploying a small-UAS platform specifically designed for autonomous inspection in challenging, GPS-denied environments like maintenance tunnels. This project integrated multiple sensors and a custom navigation algorithm to ensure reliable operation in confined spaces.</p>
+<section>
+  <h2>Motivation</h2>
+  <p>
+    Small-size UAS (sUAS) offer unique access to hazardous and confined environments — such as underground
+    steam tunnels and industrial maintenance shafts — where GNSS signals are entirely unavailable and
+    human inspection is risky. Achieving reliable autonomous navigation in these unstructured, GPS-denied
+    spaces requires a carefully designed perception payload and a computationally efficient navigation
+    algorithm capable of running in real time on a low-power embedded processor.
+  </p>
+</section>
 
-                <hr>
+<hr>
 
-                <h2>Key Contributions</h2>
-                <ul class="list-disc ml-8">
-                    <li>Built a small-UAS platform for autonomous inspection, integrating LiDAR, vision, and thermal sensors via ROS for 3D mapping and heat-signature monitoring.</li>
-                    <li>Developed a custom navigation algorithm that improved efficiency by 60% over existing methods and was optimized for real-time operation on a low-power onboard computer.</li>
-                    <li>Performed multi-sensor calibration and fusion to enable reliable SLAM-based navigation and inspection in confined environments.</li>
-                </ul>
+<section>
+  <h2>Platform and Sensors</h2>
+  <p>
+    The perception payload was integrated on a <strong>Blackout quadcopter</strong> equipped with:
+  </p>
+  <ul>
+    <li><strong>Flight Controller:</strong> 3DR Pixhawk running PX4</li>
+    <li><strong>Onboard Computer:</strong> Odroid XU4 running Ubuntu + ROS</li>
+    <li><strong>3D Depth Sensor:</strong> Occipital Structure Sensor — provides both SWIR imagery and dense 3D point clouds (FOV: 58° H × 45° V; range: 0.4–3.5 m)</li>
+    <li><strong>Thermal Camera:</strong> FLIR Lepton LWIR camera — captures 14-bit thermal images via SPI; detects heat signatures of steam leaks, exposed pipes, and insulation failures</li>
+    <li><strong>IMU:</strong> Pixhawk onboard MEMS IMU — provides high-rate accelerations and angular rates</li>
+  </ul>
+  <p>All sensors were interfaced and time-synchronized via ROS on the Odroid XU4.</p>
+</section>
 
-            </section>
-        </div>
-    </div>
-</div>
+<hr>
 
-</body>
-</html>
+<section>
+  <h2>Key Contributions</h2>
+
+  <h3>1. Multi-Sensor Calibration</h3>
+  <p>
+    A rigorous calibration pipeline was developed covering intrinsic calibration (lens distortion, focal
+    length) for both the Occipital and Lepton cameras, extrinsic calibration (rotation and translation)
+    between the two imaging sensors using a shared asymmetric circle grid target, and temporal calibration
+    between the IMU and the point cloud stream using cross-correlation of orientation signals. Calibration
+    results showed sub-degree rotation error between the cameras.
+  </p>
+
+  <h3>2. Point Cloud Segmentation and Planar Feature Extraction</h3>
+  <p>
+    A RANSAC-based planar surface extraction algorithm was developed to identify floor, ceiling, and wall
+    planes from the incoming 3D point cloud. The algorithm uses environment slicing — partitioning the
+    point cloud into horizontal z-slices — to decompose the scene into 2D cross-sections from which lines,
+    points, and arc features are extracted and combined into 3D planar surfaces. The algorithm runs in
+    real time at <strong>3 Hz</strong> on the Odroid XU4 (40–80 ms per frame).
+  </p>
+
+  <h3>3. LWIR Thermal Anomaly Detection</h3>
+  <p>
+    A thermal feature extraction pipeline was implemented to automatically detect hot pipes, steam leaks,
+    and insulation failures from LWIR imagery. The approach uses dynamic histogram-based thresholding
+    (normalizing for ambient temperature variation) and edge extraction to isolate thermally significant
+    objects. Detected anomalies are projected into the 3D map for geo-referenced inspection reporting.
+    Results from Ohio University's steam tunnels successfully identified hot pipes and a steam leak with
+    condensed water on the floor.
+  </p>
+
+  <h3>4. Navigation Architecture</h3>
+  <p>
+    The hierarchical Guidance, Navigation and Control (GNC) framework integrates the planar surface
+    features from the 3D imager with the IMU in a Kalman filter for 6-DOF pose estimation. A
+    Complementary Kalman Filter (CKF) drives the dynamics estimator, and an Extended Kalman Filter (EKF)
+    handles feature-based position updates. The planar and point feature observations constrain translation
+    and heading drift during GPS-denied flight.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Experimental Results</h2>
+  <p>
+    The platform was flight-tested in Ohio University's underground maintenance steam tunnels and in
+    Stocker Center hallways. Key results include:
+  </p>
+  <ul>
+    <li>Successful extraction of floor, ceiling, and wall planes across three distinct indoor environments (maintenance tunnel, straight corridor, inclined-wall corridor)</li>
+    <li>Reliable thermal anomaly detection including hot steam pipes, exposed insulation, and a steam leak with floor condensation</li>
+    <li>Temporal calibration between IMU and point cloud confirmed sub-10 ms latency across five independent runs</li>
+    <li>Real-time pre-processing at <strong>3 Hz</strong> on Odroid XU4 with O2 optimization (70–80 ms/frame)</li>
+    <li>Accurate extrinsic calibration between SWIR and LWIR cameras — residual scaling error within acceptable bounds for the sensor's 0.4–3.5 m operating range</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Publications</h2>
+  <ul>
+    <li>
+      Bharadwaj, A., Schultz, A., Gilabert, R., Huff, J., &amp; Uijt de Haag, M. (2016).
+      <em>Small-UAS Navigation using 3D Imager and Infrared Camera in Structured Environments.</em>
+      35th IEEE/AIAA DASC, Sacramento, CA.
+      <a href="/files/Small-UAS_navigation_using_3D_imager_and_infrared_camera_in_structured_environments.pdf">[PDF]</a>
+    </li>
+    <li>
+      Bharadwaj, A. S. (2018). <em>A Perception Payload for Small-UAS Navigation in Structured Environments.</em>
+      M.S. Thesis, Ohio University.
+      <a href="/files/Bharadwaj, Akshay Accepted Thesis 8-6-2018 Su.pdf">[PDF]</a>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,145 @@
+---
+title: "Detection of Abnormalities in Medical Images"
+excerpt: "Early breast cancer detection: A multi-stage CAD pipeline using top-hat transform, Gibbs random fields, and fuzzy clustering to detect microcalcifications in mammograms (94.4% detection rate). US Patent filed.<br/><img src='/images/bio-photo-swir.jpg'>"
+collection: portfolio
+---
+
+<section>
+  <h2>Overview</h2>
+  <p>
+    Breast cancer is among the leading causes of death in women aged 40 and above, with over 230,000
+    new cases in the US annually. Early detection dramatically improves survival rates, and microcalcifications
+    (MCs) — tiny calcium deposits as small as 0.1 mm appearing as bright spots on mammograms — are among
+    the earliest and most reliable indicators of malignancy. Their low contrast and small size make
+    automated detection extremely challenging.
+  </p>
+  <p>
+    This project, conducted at the School of Electrical Engineering and Computer Science, Ohio University,
+    developed a novel computer-aided detection (CAD) pipeline for MCs in digital mammograms. The work
+    resulted in both a peer-reviewed publication and a US Patent Application.
+  </p>
+  <ul>
+    <li><strong>Institution:</strong> Ohio University, Athens, OH</li>
+    <li><strong>Collaborator:</strong> Prof. Mehmet Celenk</li>
+    <li><strong>Outcomes:</strong> IEEE EMBC 2015 paper + US Patent Application US20180053297A1</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Methodology</h2>
+  <p>The detection pipeline consists of four stages:</p>
+
+  <h3>Stage 1: Gross Segmentation — Fuzzy C-Means Clustering</h3>
+  <p>
+    The raw grayscale mammogram is first segmented using Fuzzy C-Means (FCM) clustering to isolate the
+    breast tissue region from the background, reducing the search space for subsequent processing and
+    improving robustness to scanner-to-scanner intensity variations.
+  </p>
+
+  <h3>Stage 2: Region of Interest Localization — Top-Hat Transform</h3>
+  <p>
+    A morphological top-hat transform is applied to the segmented image to enhance small, bright,
+    high-frequency structures (MCs) against the slowly varying breast tissue background. The transform
+    effectively suppresses low-frequency luminance variation while preserving MC-scale features.
+    A subsequent watershed transform precisely isolates the candidate ROI from the surrounding tissue.
+  </p>
+
+  <h3>Stage 3: MC Detection — Gibbs Random Fields and Clique Patterns</h3>
+  <p>
+    Within the extracted ROI, Gibbs random field (GRF) clique patterns are used to model the statistical
+    dependencies between neighboring pixels. Multi-pixel cliques (2-, 3-, and 4-pixel) are analyzed:
+    a clique is flagged as a potential MC if its average intensity exceeds a threshold times the average
+    intensity of the surrounding 5×5 neighborhood. Single-pixel cliques handle very small MCs embedded
+    in high-intensity regions, requiring the central pixel to exceed the local 3×3 average plus a
+    threshold offset.
+  </p>
+
+  <h3>Stage 4: Thresholding and Output</h3>
+  <p>
+    The final detected MC candidates are marked on the original mammogram image, providing a visual
+    overlay for clinical review.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Results</h2>
+  <table style="width:100%; border-collapse: collapse; text-align: center;">
+    <thead>
+      <tr style="background-color: #f0f0f0;">
+        <th style="padding: 8px; border: 1px solid #ddd;">Metric</th>
+        <th style="padding: 8px; border: 1px solid #ddd;">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Overall Detection Rate (DR)</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><strong>94.4%</strong></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Sensitivity</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><strong>93.7%</strong></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">Detection Accuracy (DA)</td>
+        <td style="padding: 8px; border: 1px solid #ddd;"><strong>88.2%</strong></td>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd;">False Negative Rate</td>
+        <td style="padding: 8px; border: 1px solid #ddd;">5.6%</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top: 10px;">
+    The algorithm efficiently reduces the search space to regions with high MC probability before
+    running the GRF detector, making it computationally tractable for clinical deployment.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Patent</h2>
+  <p>
+    The core detection method was filed as a US patent application by Ohio University:
+  </p>
+  <ul>
+    <li><strong>Title:</strong> Methods and Apparatuses for Detection of Abnormalities in Low-Contrast Images</li>
+    <li><strong>Pub. No.:</strong> US 2018/0053297 A1</li>
+    <li><strong>Inventors:</strong> Mehmet Celenk, Akshay S. Bharadwaj</li>
+    <li><strong>Assignee:</strong> Ohio University</li>
+    <li><strong>Filed:</strong> August 11, 2017 &nbsp;|&nbsp; <strong>Published:</strong> February 22, 2018</li>
+  </ul>
+  <p>
+    The patent extends the detection method to a <strong>network-delivered clinical decision support
+    system</strong>: a server receives a medical image, runs the detection pipeline, and returns the
+    evaluation to a clinician's device — enabling cloud-assisted mammography screening at scale.
+  </p>
+  <p>
+    <a href="/files/US20180053297A1.pdf">[PDF] Patent Application US20180053297A1</a>
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Publications</h2>
+  <ul>
+    <li>
+      Bharadwaj, A. S. &amp; Celenk, M. (2015).
+      <em>Detection of Microcalcification with Top-Hat Transform and the Gibbs Random Fields.</em>
+      37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC),
+      Milan, Italy.
+      <a href="/files/Detection_of_microcalcification_with_top-hat_transform_and_the_Gibbs_random_fields.pdf">[PDF]</a>
+    </li>
+    <li>
+      Celenk, M. &amp; Bharadwaj, A. S. (2018).
+      <em>Methods and Apparatuses for Detection of Abnormalities in Low-Contrast Images.</em>
+      US Patent Application Publication No. US 2018/0053297 A1.
+      <a href="/files/US20180053297A1.pdf">[PDF]</a>
+    </li>
+  </ul>
+</section>

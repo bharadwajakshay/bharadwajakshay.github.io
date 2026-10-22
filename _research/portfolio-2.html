@@ -1,7 +1,130 @@
 ---
-title: "Portfolio item number 2"
-excerpt: "Short description of portfolio item number 2 <br/><img src='/images/500x300.png'>"
+title: "3D Building Reconstruction from Airborne LiDAR"
+excerpt: "PhD Research (University of Calgary): Neural-guided 3D building reconstruction and digital twin generation from occluded airborne LiDAR point clouds using deep learning.<br/><img src='/images/profile.png'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+<section>
+  <h2>Overview</h2>
+  <p>
+    As a PhD candidate in Geomatics Engineering at the University of Calgary (Spatial Intelligence Lab),
+    my research focuses on recovering accurate 3D building models from airborne LiDAR point clouds —
+    a critical step in the automated production of urban digital twins. The core challenge is that
+    airborne scanning inherently produces occluded, incomplete, and noisy point clouds: building façades
+    are only partially visible from above, point density varies across the scene, and sensor noise
+    corrupts fine architectural details. My work addresses these challenges through a combination of
+    deep learning-based point completion and neural-guided mesh deformation.
+  </p>
+  <ul>
+    <li><strong>Institution:</strong> University of Calgary, Department of Geomatics Engineering</li>
+    <li><strong>Lab:</strong> Spatial Intelligence Lab (PI: Prof. Ruisheng Wang)</li>
+    <li><strong>Research Areas:</strong> 3D Vision, Deep Learning, LiDAR Processing, Digital Twins, Photogrammetry</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Project 1: APC2Mesh — Bridging Occluded Building Façades to Full 3D Models</h2>
+
+  <h3>Problem</h3>
+  <p>
+    Airborne LiDAR captures rooftops well but provides only sparse, occluded coverage of building
+    façades, particularly for taller buildings or dense urban blocks. Traditional mesh reconstruction
+    methods produce incomplete or geometrically inaccurate models when fed such incomplete point clouds.
+  </p>
+
+  <h3>Approach</h3>
+  <p>
+    APC2Mesh introduces a two-stage pipeline:
+  </p>
+  <ol>
+    <li>
+      <strong>Airborne Point Completion (APC):</strong> A deep learning network infers the full, dense
+      point cloud of a building from its occluded, sparse aerial observation. The completion network
+      learns the geometric regularity of urban buildings to hallucinate missing façade and corner points.
+    </li>
+    <li>
+      <strong>Point-to-Mesh Deformation:</strong> The completed point cloud is passed to a
+      <em>linearized skip attention-based deformation network</em> that deforms an initial mesh template
+      to match the completed geometry, producing a watertight, high-fidelity 3D mesh.
+    </li>
+  </ol>
+
+  <h3>Results</h3>
+  <ul>
+    <li>Validated across three urban scenes with diverse building footprints and architectural styles</li>
+    <li>Outperforms baselines on completeness and surface accuracy for buildings with severe façade occlusion</li>
+    <li>Produces meshes suitable for direct use in urban digital twin and city-scale simulation pipelines</li>
+  </ul>
+
+  <p>
+    <strong>Publication:</strong> Akwensi, P. H., Bharadwaj, A., &amp; Wang, R. (2024).
+    <em>APC2Mesh: Bridging the gap from occluded building façades to full 3D models.</em>
+    <strong>ISPRS Journal of Photogrammetry and Remote Sensing.</strong>
+    <a href="https://doi.org/10.1016/j.isprsjprs.2024.04.009">[DOI]</a>
+    <a href="https://arxiv.org/abs/2404.02391">[arXiv]</a>
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Project 2: Points2Model — Neural-Guided 3D Building Wireframe Reconstruction</h2>
+
+  <h3>Problem</h3>
+  <p>
+    Building wireframe models — compact, editable representations of a building's structural skeleton
+    (edges, corners, ridgelines) — are essential for BIM workflows, urban planning, and change detection.
+    Generating wireframes directly from raw airborne LiDAR is difficult due to point sparsity,
+    roof/façade occlusions, and noise that erodes sharp structural edges.
+  </p>
+
+  <h3>Approach</h3>
+  <p>
+    Points2Model proposes a neural-guided pipeline that:
+  </p>
+  <ol>
+    <li>
+      <strong>Point upsampling and completion:</strong> Enriches the sparse, noisy input point cloud
+      to produce a denser, more uniform representation that preserves structural edges and corners.
+    </li>
+    <li>
+      <strong>Neural-guided wireframe extraction:</strong> A learned module predicts the locations of
+      structural lines and corners, which are then connected into a coherent wireframe graph
+      representing the building's geometry.
+    </li>
+  </ol>
+
+  <h3>Results</h3>
+  <ul>
+    <li>Evaluated on large-scale urban LiDAR datasets covering diverse building typologies</li>
+    <li>Demonstrates improved wireframe completeness and accuracy over purely geometric methods</li>
+    <li>Directly applicable to automated BIM generation and urban-scale digital earth applications</li>
+  </ul>
+
+  <p>
+    <strong>Publication:</strong> Akwensi, P. H., Bharadwaj, A., &amp; Wang, R. (2025).
+    <em>Points2Model: A Neural-Guided 3D Building Wireframe Reconstruction from Airborne LiDAR Point Clouds.</em>
+    <strong>International Journal of Digital Earth</strong>, 18(1), 2458682.
+    <a href="https://doi.org/10.1080/17538947.2025.2458682">[DOI]</a>
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Broader Research Context</h2>
+  <p>
+    This work is part of the Spatial Intelligence Lab's broader effort to build the
+    <strong>Building3D</strong> benchmark — the first urban-scale dataset for 3D building reconstruction
+    from aerial point clouds — and to develop fully automated pipelines from raw airborne LiDAR to
+    production-ready urban digital twins. Key research themes include:
+  </p>
+  <ul>
+    <li>Photogrammetric self-calibration and sensor benchmarking</li>
+    <li>Multi-modal sensor alignment (LiDAR ↔ camera ↔ thermal)</li>
+    <li>Deep learning for sparse and irregular 3D data</li>
+    <li>Urban-scale 3D reconstruction and digital twin generation</li>
+  </ul>
+</section>

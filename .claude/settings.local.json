@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:scholar.google.ca)",
+      "WebSearch",
+      "WebFetch(domain:ieeexplore.ieee.org)",
+      "WebFetch(domain:www.ion.org)",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:www.tandfonline.com)",
+      "WebFetch(domain:www.researchgate.net)",
+      "WebFetch(domain:ruishengwang.github.io)",
+      "WebFetch(domain:schulich.ucalgary.ca)",
+      "WebFetch(domain:www.ucalgary.ca)",
+      "Bash(brew install:*)",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(python3 -c \"import pypdf; print\\(''pypdf ok''\\)\")",
+      "Bash(python3 -c \"import PyPDF2; print\\(''PyPDF2 ok''\\)\")",
+      "Bash(pip3 install:*)"
+    ]
+  }
+}
