@@ -13,7 +13,7 @@ title                    : "Akshay Bharadwaj"
 title_separator          : "-"
 name                     : &name "Akshay Bharadwaj"
 description              : &description "My academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://bharadwajakshay.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+url                      : https://bharadwajakshay.com # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "bharadwajakshay/bharadwajakshay.github.io"
