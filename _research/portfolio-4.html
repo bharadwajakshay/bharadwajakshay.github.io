@@ -1,0 +1,117 @@
+---
+title: "Cost-Effective HD-Mapping for Autonomous Vehicles and Digital Twins"
+excerpt: "Ph.D. Dissertation (University of Calgary, 2026): A cost-effective mobile mapping platform for HD-map generation — photogrammetric camera self-calibration, learning-based LiDAR–camera calibration, and neural implicit LiDAR–inertial odometry."
+collection: portfolio
+---
+
+<section>
+  <h2>Overview</h2>
+  <p>
+    Scalable, cost-effective generation and updating of high-definition maps (HD-maps) is a foundational
+    challenge for the widespread deployment of autonomous vehicles. The quality of any HD-map depends on
+    the accuracy of the underlying sensor calibration and localization pipelines. My Ph.D. research
+    tackles this end to end: from rigorous camera modeling, through multi-sensor calibration, to
+    geometrically consistent large-scale LiDAR–inertial mapping. It culminates in a low-cost prototype
+    mobile mapping system that can be driven or worn as a backpack.
+  </p>
+  <ul>
+    <li><strong>Institution:</strong> University of Calgary, Schulich School of Engineering, Department of Geomatics Engineering</li>
+    <li><strong>Degree:</strong> Doctor of Philosophy, Geomatics Engineering</li>
+    <li><strong>Year:</strong> 2026</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Thread 1: Beyond Checkerboards — Photogrammetric Camera Calibration</h2>
+  <p>
+    Checkerboard-based calibration is popular because it is simple and easy to deploy, and it is used
+    even in mission-critical computer vision pipelines. But it can't model high-precision camera
+    geometry well, which hurts downstream tasks that need geometric accuracy. This work revisits intrinsic
+    and extrinsic camera calibration within the framework of <strong>photogrammetric self-calibration
+    (PSC)</strong>.
+  </p>
+  <ul>
+    <li>PSC consistently outperforms checkerboard calibration in both accuracy and precision</li>
+    <li>Evaluated across 3D reconstruction with structure from motion (SfM), visual SLAM, and novel-view synthesis and reconstruction</li>
+    <li>Argues for calibration methods that reflect the physical and projective properties of real camera systems</li>
+  </ul>
+  <p>
+    <strong>Publication:</strong> Bharadwaj, A. &amp; Lichti, D. D. (2026).
+    <em>Beyond Checkerboards: Advantages of Photogrammetric Camera Calibration for Robust 3D Vision and Novel-View Generation.</em>
+    <strong>Remote Sensing</strong>, 18(13), 2220.
+    <a href="https://doi.org/10.3390/rs18132220">[DOI]</a>
+    <a href="https://bharadwajakshay.github.io/beyond-checkerboard.github.io/">[Project Page]</a>
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Thread 2: Learning-Based LiDAR–Camera Calibration</h2>
+  <p>
+    Reliable perception and mapping depend on accurately fusing camera imagery with onboard LiDAR and
+    IMU. Camera–inertial calibration is well studied, but LiDAR–camera extrinsic calibration is still
+    hard outside controlled environments. I proposed a <strong>two-step, learning-based calibration
+    framework</strong>:
+  </p>
+  <ol>
+    <li><strong>Coarse estimation:</strong> instance-wise correspondences from everyday objects in the scene give an initial estimate of the extrinsic parameters, with no calibration target needed</li>
+    <li><strong>Fine refinement:</strong> an end-to-end neural network refines the coarse estimate into accurate calibration parameters</li>
+  </ol>
+  <p>
+    This lets the system keep adapting to changes in sensor pose during real-world operation.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Thread 3: Neural Implicit LiDAR–Inertial Odometry</h2>
+  <p>
+    Neural implicit methods have emerged as an effective alternative to classical LiDAR mapping. They
+    match classical accuracy while needing far less storage for the map. However, their accuracy degrades
+    in highly dynamic scenes, such as areas with pedestrian motion. I developed a <strong>neural implicit
+    inertial odometry</strong> framework that jointly integrates LiDAR and inertial measurements to
+    produce geometrically consistent 3D point clouds.
+  </p>
+  <ul>
+    <li><strong>Adaptive LiDAR downsampling</strong> to preserve fine geometric detail</li>
+    <li><strong>Neural point correspondences</strong> for accurate inter-scan odometry estimation</li>
+    <li><strong>Attention-based loop closure</strong> to keep large-scale maps globally consistent</li>
+  </ul>
+</section>
+
+<hr>
+
+<section>
+  <h2>Prototype Mobile Mapping System and Evaluation</h2>
+  <p>
+    As part of this work, I designed and built a cost-effective prototype mobile mapping system that
+    operates in both <strong>driving</strong> and <strong>backpack</strong> configurations, and used it to
+    collect a new dataset. The tools and algorithms were evaluated on public benchmarks
+    (<strong>Oxford-Spires</strong>, <strong>KITTI</strong>, and <strong>EuRoC-MAV</strong>) and
+    further validated on this newly collected dataset.
+  </p>
+</section>
+
+<hr>
+
+<section>
+  <h2>Publications</h2>
+  <ul>
+    <li>
+      Bharadwaj, A. S. (2026).
+      <em>Cost-Effective Mapping Platform to Generate HD-Maps for Autonomous Vehicles and Digital Twins.</em>
+      Ph.D. Dissertation, University of Calgary.
+      <a href="https://doi.org/10.11575/PRISM/51522">[DOI]</a>
+    </li>
+    <li>
+      Bharadwaj, A. &amp; Lichti, D. D. (2026).
+      <em>Beyond Checkerboards: Advantages of Photogrammetric Camera Calibration for Robust 3D Vision and Novel-View Generation.</em>
+      Remote Sensing, 18(13), 2220.
+      <a href="https://doi.org/10.3390/rs18132220">[DOI]</a>
+    </li>
+  </ul>
+</section>
