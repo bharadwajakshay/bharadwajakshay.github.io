@@ -11,54 +11,41 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Geomatics Engineering, University of Calgary, Dec 2025 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D. in Geomatics Engineering, University of Calgary, 2026
+  * Dissertation: *Cost-Effective Mapping Platform to Generate HD-Maps for Autonomous Vehicles and Digital Twins*
+* M.S. in Electrical and Computer Science Engineering, Ohio University, 2018
+  * Thesis: *A Perception Payload for Small-UAS Navigation in Structured Environments*
+* B.E. in Medical Electronics, Visvesvaraya Technological University, India
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Graduate Researcher, University of Calgary
+  * Multi-sensor fusion and SLAM for autonomous navigation, 3D reconstruction, and digital twins
+  * Photogrammetric self-calibration, sensor benchmarking, and learning-based LiDAR–camera calibration
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Software Engineer, Sensor Fusion — LocusLabs (acquired by Acuity Brands)
+  * Developed full-stack perception and mapping systems deployed in airports and malls worldwide
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
+* Graduate Research Assistant, Ohio University
+  * Built perception payloads for small-UAS navigation in structured and GPS-denied environments
+
+* Embedded Design Engineer — Redmount Consultancy Services
+  * Designed FPGA/DSP-based imaging solutions
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming: Python, C, C++, MATLAB
+* Frameworks & Tools: PyTorch, TensorFlow, ROS, Docker, AWS, LaTeX, Git
+* Domains: Photogrammetry, SLAM, Sensor Fusion, Robotics, Computer Vision, 3D Reconstruction
 
 Publications
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
